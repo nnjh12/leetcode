@@ -9,6 +9,7 @@ class Solution:
         if n < 2:
             return nums
 
+        # minimize k value. If list contains 3 elements, k=4 has the same result with k=1.
         k = k % n
 
         # save last k elements
