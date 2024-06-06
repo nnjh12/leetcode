@@ -13,26 +13,24 @@ class Solution:
         # Edge case
         if n < 2:
             #Wprint("case1-true")
-            mem[start] = True
+            #mem[start] = True
             return True
 
         # Need to handle the case when nums[0] is 0.
         if nums[start] == 0:
             #print("case2-false")
-            mem[start] = False
+            #mem[start] = False
             return False
         
         # If possible max jumps is greater or equal to distance to the last index
         if nums[start] >= n-1:
             #print("case3-true")
-            mem[start] = True
+            #mem[start] = True
             return True
 
         # We can jump 1 to nums[0] if nums[i] is not 0.
         for i in range(1, nums[start] + 1):
             if self.canJumpHelper(nums, start + i, mem):
-                mem[start] = True
-                break
+                return True
             else:
                 mem[start] = False
-        return mem[start]
