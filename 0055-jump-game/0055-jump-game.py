@@ -1,4 +1,22 @@
 class Solution:
+    # Attemp2. linear
+    def canJump(self, nums: List[int]) -> bool:
+        energy = 0
+        for num in nums:
+            if energy < 0:
+                return False
+            # If num is greater than current energy,
+            # upgrade energy to num.
+            if num > energy:
+                energy = num
+            # To move to next num, we need to use 1 energy.
+            energy -= 1
+        
+        # If we can iterate to the last num, return true.
+        return True
+
+    """
+    # Attemp1. DP - not very efficient
     def canJump(self, nums: List[int]) -> bool:
         mem = {}
         return self.canJumpHelper(nums, 0, mem)
@@ -34,3 +52,4 @@ class Solution:
                 return True
             else:
                 mem[start] = False
+    """
