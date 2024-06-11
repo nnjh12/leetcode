@@ -21,10 +21,13 @@ class Solution:
 
     def isInOrder(self, symbols: list[str], s1: str, s2: str) -> bool:
         distance = symbols.index(s1) - symbols.index(s2)
+        # If distance is -1, it is valid roman in reverse order. 
         if distance == -1:
             return False
+        # If distance is greater or equal to 0, it is valid roman in forwards order.
         elif distance >= 0:
             return True
+        # Otherwise, it is invalid roman. 
         else:
             print('Invalid Roman')
 
